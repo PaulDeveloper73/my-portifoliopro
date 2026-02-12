@@ -1,4 +1,4 @@
-name: Deploy React Portfolio
+name: Deploy Portfolio to Pages
 
 on:
   push:
@@ -15,33 +15,40 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build_and_deploy:
+  # NEW: The Test Job
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Check for Broken Links
+        # This will scan your HTML files for any dead links
+        uses: lycheeverse/lychee-action@v1.9.0
         with:
-          node-version: 20
-          cache: 'npm'
+          args: --verbose --no-progress './**/*.html'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        # No more GEMINI_API_KEY needed here
-        run: npm run build
-
+  # The Deployment Job (now depends on 'test')
+  deploy:
+    needs: test # This ensures deployment ONLY happens if tests pass
+    environment:
+      name: github-pages
+      url: ${{ steps:deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' 
-
+          path: '.'
+      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
