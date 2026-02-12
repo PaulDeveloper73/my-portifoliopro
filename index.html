@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kisakye Paul | Software Expert & Architect</title>
+  <meta name="description" content="I build fast and safe apps that grow your business. Top quality work for the modern world." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bg0: 'var(--bg0)',
+            bg1: 'var(--bg1)',
+            ink: 'var(--ink)',
+            muted: 'var(--muted)',
+            accent: '#8b5cf6',
+            accent2: '#a78bfa',
+            accent3: '#6366f1',
+            danger: '#f43f5e',
+          },
+          fontFamily: {
+            sans: ['Roboto', 'system-ui', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+          },
+          borderRadius: {
+            'section': '1.5rem',
+            'card': '1rem',
+          },
+          boxShadow: {
+            'accent': '0 10px 30px -10px rgba(139, 92, 246, 0.3)',
+            'accent-lg': '0 20px 50px -15px rgba(139, 92, 246, 0.4)',
+          },
+          animation: {
+            'bounce-slow': 'bounce 3s infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg0: #FFFFFF;
+      --bg1: #F9FAFB;
+      --ink: #111827;
+      --muted: #6B7280;
+      --glass-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(139, 92, 246, 0.15);
+      --grid-color-x: rgba(139, 92, 246, 0.05);
+      --grid-color-y: rgba(139, 92, 246, 0.04);
+    }
+    .dark {
+      --bg0: #0C0A1F;
+      --bg1: #0F0D29;
+      --ink: #F3F4F6;
+      --muted: #9CA3AF;
+      --glass-bg: rgba(12, 10, 31, 0.7);
+      --glass-border: rgba(139, 92, 246, 0.25);
+      --grid-color-x: rgba(139, 92, 246, 0.08);
+      --grid-color-y: rgba(139, 92, 246, 0.06);
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: 
+        radial-gradient(1200px 900px at 18% 10%, rgba(139, 92, 246, 0.08), transparent 60%),
+        radial-gradient(900px 900px at 80% 18%, rgba(99, 102, 241, 0.06), transparent 60%),
+        radial-gradient(900px 700px at 60% 85%, rgba(167, 139, 250, 0.05), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      transition: background-color 0.3s ease;
+    }
+    .gridlines {
+      background:
+        linear-gradient(to right, var(--grid-color-x) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-color-y) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(80% 60% at 50% 35%, #000 60%, transparent 100%);
+    }
+    .glass {
+      backdrop-filter: blur(12px);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal { opacity: 0; }
+    .reveal.active { animation: fadeInUp 0.8s ease-out forwards; }
+    
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      .glass { border: 1px solid #ddd; background: white; backdrop-filter: none; }
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="text-ink font-sans min-h-screen relative overflow-x-hidden transition-colors duration-300">
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
