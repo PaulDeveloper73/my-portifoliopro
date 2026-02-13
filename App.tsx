@@ -202,7 +202,7 @@ const App: React.FC = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="hero" className="relative overflow-hidden pt-24 pb-20 md:pt-44 md:pb-40 px-6">
+      <section id="hero" className="relative overflow-hidden pt-2 pb-20 md:pt- md:pb-40 px-6">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <div className="lg:col-span-7 space-y-10 text-center lg:text-left reveal active">
             <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-accent/5 border border-accent/20 backdrop-blur-sm">
@@ -213,7 +213,7 @@ const App: React.FC = () => {
               <span className="text-[11px] font-black text-accent/80 uppercase tracking-[0.2em]">Ready for work</span>
             </div>
             
-            <h1 className="text-5xl md:text-8xl lg:text-9xl font-black leading-[1.05] tracking-tighter">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.05] tracking-tighter">
               I Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent2 to-accent3">Apps</span> <br />
               That Grow Your Business.
             </h1>
